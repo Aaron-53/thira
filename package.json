@@ -1,0 +1,15 @@
+{
+  "name": "thira-landing",
+  "private": true,
+  "scripts": {
+    "build": "node build.cjs"
+  },
+  "dependencies": {
+    "@shadergradient/react": "2.4.20",
+    "react": "19.2.3",
+    "react-dom": "19.2.3"
+  },
+  "devDependencies": {
+    "esbuild": "0.27.2"
+  }
+}

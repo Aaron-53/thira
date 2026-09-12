@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Thira</title>
+
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+
+        background: #c03410;
+      }
+
+      body {
+        display: block;
+      }
+
+      #plasma-background {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background: #c03410;
+        isolation: isolate;
+      }
+
+      #plasma-background > div {
+        opacity: 0.55;
+      }
+
+      #plasma-background::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        /* Keep the original orange behind the fine details of the logo. */
+        background: radial-gradient(
+          ellipse at center,
+          rgba(192, 52, 16, 0.72) 0%,
+          rgba(192, 52, 16, 0.5) 25%,
+          rgba(192, 52, 16, 0.12) 65%,
+          rgba(139, 37, 15, 0.18) 100%
+        );
+      }
+
+      .artboard {
+        position: fixed;
+        inset: 0;
+        z-index: 1;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+
+      .landing-logo {
+        display: block;
+        width: min(252px, 70vw, 43.45vh);
+        height: auto;
+        max-width: 100%;
+        object-fit: contain;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="plasma-background" aria-hidden="true"></div>
+    <main class="artboard">
+      <img
+        class="landing-logo"
+        src="logo-centered.svg"
+        width="252"
+        height="348"
+        alt="Thira logo"
+      />
+    </main>
+    <script defer src="plasma-background.js"></script>
+  </body>
+</html>
