@@ -92,7 +92,7 @@ export function createLogo(scene,renderer,camera,palette,ripples,mobile,motion,m
       uniforms.uTime.value=time;uniforms.uReveal.value=reveal;uniforms.uIntensity.value=act.exposure/1.15;
       uniforms.uForming.value=act.gather>0?1:0;
       waterUniforms.uIntroSmear.value=act.smear||0;
-      waterUniforms.uLogoStrength.value=(act.opening?Math.max(reveal,act.smear*2.5):reveal)*uniforms.uIntensity.value;
+      waterUniforms.uLogoStrength.value=(act.opening?Math.max(reveal,act.smear*2.5):Math.max(reveal,.22*smoothstep(.6,.75,act.progress)))*uniforms.uIntensity.value;
       if(!motion.matches&&!deterministic&&time-lastImpulse>=4){ripples.inject(0,-30,.055);lastImpulse=time;}
       if(!deterministic&&reflectionFrame++%reflectionInterval!==0)return;
       camera.updateMatrixWorld();matrix.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);

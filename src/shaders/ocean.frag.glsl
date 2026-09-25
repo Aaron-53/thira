@@ -55,6 +55,12 @@ void main(){
       mark+=texture2D(uLogoTexture,clamp(logoUv+blur,0.0,1.0)).a/7.0;
     }
     below+=mix(uEmber,uIvory,.45*(1.0-uIntroSmear))*mark*inside*uLogoStrength*.65*exp(-abs(cameraPosition.y)*.1);
+    // A distant, scattered image on the underside, softened by surface distortion.
+    vec2 overheadUv=vec2(vWorld.x/14.0+.5,(-vWorld.z-15.0)/20.0)+N.xz*.12;
+    float overheadInside=step(0.0,overheadUv.x)*step(overheadUv.x,1.0)*step(0.0,overheadUv.y)*step(overheadUv.y,1.0);
+    float overheadMark=0.0;
+    for(int k=-2;k<=2;k++)overheadMark+=texture2D(uLogoTexture,clamp(overheadUv+vec2(float(k)*.014,float(k)*.009),0.0,1.0)).a*.2;
+    below+=mix(uEmber,uIvory,.3)*overheadMark*overheadInside*uLogoStrength*uIntroSmear*.8;
     float fog=1.0-exp(-pow(distanceToCamera*.038,2.0));
     gl_FragColor=vec4(mix(below,uAbyss,fog),markAlpha);
     #include <tonemapping_fragment>

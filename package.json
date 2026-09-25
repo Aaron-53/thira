@@ -5,13 +5,12 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview --host --port 8080",
-    "test": "node scripts/test-wave-controls.mjs && node scripts/test-performance.mjs && node scripts/test-tilt.mjs",
-    "verify:ocean": "node scripts/verify-auto-scroll.mjs"
+    "test": "node scripts/test-wave-controls.mjs && node scripts/test-performance.mjs",
+    "verify:ocean": "node scripts/verify-manual-scroll.mjs"
   },
   "dependencies": {
     "@fontsource/outfit": "^5.3.0",
     "gsap": "^3.15.0",
-    "lenis": "^1.3.26",
     "three": "^0.182.0",
     "troika-three-text": "^0.52.5"
   },

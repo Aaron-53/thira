@@ -1,6 +1,6 @@
 # THIRA
 
-Three.js ocean coming-soon site. One downward gesture scrolls smoothly to the ending; an upward gesture returns to the opening. Includes an underwater entrance, whirlpool, liquid logo reveal, mobile tilt and adaptive rendering quality.
+Three.js ocean coming-soon site. Native manual scrolling controls the journey in both directions; there is no automatic scrolling. Includes an underwater entrance, warm ocean, whirlpool, quiet underwater presenter logos and adaptive rendering quality.
 
 ## Run
 
@@ -11,8 +11,8 @@ Three.js ocean coming-soon site. One downward gesture scrolls smoothly to the en
 
 ## Checks
 
-- `npm test` — wave sampling, adaptive performance and tilt checks.
-- `npm run verify:ocean` — browser check for forward/backward auto-scroll; requires the preview on port 8080.
+- `npm test` — wave sampling and adaptive performance checks.
+- `npm run verify:ocean` — browser check for forward/backward manual scrolling; requires the preview on port 8080.
 - Remaining `scripts/verify-*.mjs` capture specific rendering features using a production server on port 4176. They create ignored output in `artifacts`.
 - `scripts/profile-narrative.mjs` measures rendering cost on port 4176 with the opt-in profiler.
 

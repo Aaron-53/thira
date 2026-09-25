@@ -33,9 +33,9 @@ export function createPostprocess(renderer,camera,palette,mobile){
       const submerged=act.underwater;
       if(Math.abs(submerged-previousUnder)>.05)wet=1;
       wet=Math.max(0,wet-delta/0.3);previousUnder=submerged;
-      const breach=(act.breach||0)+smoothstep(.88,.90,act.progress)*(1-smoothstep(.90,.94,act.progress));
+      const breach=act.breach||0;
       uniforms.uTime.value=time;uniforms.uAmplitude.value=act.amplitude;uniforms.uUnderwater.value=submerged;
-      finalUniforms.uReturn.value=smoothstep(.8,1,act.progress);
+      finalUniforms.uReturn.value=0;
       finalUniforms.uTime.value=time;finalUniforms.uUnderwater.value=submerged;
       finalUniforms.uWet.value=Math.max(act.breach||0,deterministic?0:wet);
       finalUniforms.uGrain.value=act.opening?.035+.045*(1-smoothstep(0,2.2,act.introSeconds)):.035;
